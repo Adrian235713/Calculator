@@ -4,23 +4,43 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blue;
+    background-color: darkorange;
 }
 
 .mainCalculatorDiv1 {
     width: 40%;
     height: 80%;
-    background-color: cadetblue;
+    background-color: black;
     margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 30px;
 }
-
 
 .mainCalculatorDiv2 {
     width: 40%;
     height: 80%;
     display: flex;
-    justify-content: center;
-    background-color: darkblue;
+    background-color: darkorange;
     margin-left: 10px;
+    display: flex;
+    flex-direction: column;
 }
+
+.mainCalculatorDiv2 div {
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    text-align: center;
+    margin: 10px;
+    color: white;
+    padding: 5%;
+    font-size:25px;
+    border-radius: 30px;
+}
+
+
+/*--------------------------------------------------------------------------------*/
 

@@ -1,60 +1,133 @@
-import React, {Component,useState} from 'react';
+import React, {Component, useState} from 'react';
 
 const Calculator = () => {
 
     const [data, setData] = useState([]);
+    // ----------------- Retrieving data from the user -----------------------------
 
     const getInput7 = () => {
         // data.push('7');
-        setData([...data,7]);
+        setData([...data, 7]);
         console.log(data);
     }
     const getInput8 = () => {
-        data.push('8');
+        setData([...data, 8]);
         console.log(data);
     }
     const getInput9 = () => {
-        data.push('9');
-        console.log(data);
-    }
-    const getInputDivision = () => {
-        data.push('/');
+        setData([...data, 9]);
         console.log(data);
     }
     const getInput4 = () => {
-        data.push('4');
+        setData([...data, 4]);
         console.log(data);
     }
     const getInput5 = () => {
-        data.push('5');
+        setData([...data, 5]);
         console.log(data);
     }
     const getInput6 = () => {
-        data.push('9');
-        console.log(data);
-    }
-    const getInputMultiplication = () => {
-        data.push('*');
+        setData([...data, 6]);
         console.log(data);
     }
     const getInput1 = () => {
-        data.push('1');
+        setData([...data, 1]);
         console.log(data);
     }
     const getInput2 = () => {
-        data.push('2');
+        setData([...data, 2]);
         console.log(data);
     }
     const getInput3 = () => {
-        data.push('3');
+        setData([...data, 3]);
         console.log(data);
     }
-    const getInputAddition = () => {
-        data.push('+');
+    const getInput0 = () => {
+        setData([...data, 0]);
+        console.log(data);
+    }
+    const getsubtraction = () => {
+        setData([...data, '-'])
         console.log(data);
     }
 
-    return(
+    // --------------------------------- Convert to two numbers -------------------------------------
+    let number1List = [];
+    let number2List = [];
+
+    let xxx = 0;
+    for (let i = 0; i < data.length; i++) {
+
+        if ((data[i] === ('*')) || (data[i] === ('/')) || (data[i] === ('+')) || (data[i] === ('-'))
+            || (data[i] === ('='))) {
+            xxx = 1;
+        }
+
+        if ((data[i] !== ('*')) && (data[i] !== ('/')) && (data[i] !== ('+')) && (data[i] !== ('-'))
+            && (data[i] !== ('=')) && (xxx === 0)) {
+            number1List.push(data[i]);
+        }
+
+        if ((data[i] !== ('*')) && (data[i] !== ('/')) && (data[i] !== ('+')) && (data[i] !== ('-'))
+            && (data[i] !== ('=')) && (xxx === 1)) {
+            number2List.push(data[i]);
+        }
+    }
+    // ----------------------------------------------------------------------------------------------
+
+    const getInputDivision = () => {
+        setData([...data, '/']);
+    }
+    const getInputMultiplication = () => {
+        setData([...data, '*']);
+        console.log(data);
+    }
+    const getInputAddition = () => {
+        setData([...data, '+']);
+        console.log(data);
+    }
+    const getDecimalNumber = () => {
+        setData([...data, '.']);
+        console.log(data);
+    }
+    // ----------------------------------------------------------------------------------------------
+
+    let number1 = Number(number1List.join(''));
+    let number2 = Number(number2List.join(''));
+
+    const xxxx = () => {
+        window.location.reload();
+    }
+
+    const [res, setRes] = useState(null);
+
+    const result = () => {
+        for (let i = 0; i <= data.length; i++){
+
+            if(data[i] === '/'){
+                setRes(number1/number2);
+                console.log(res);
+            }
+
+            if(data[i] === '*'){
+                setRes(number1*number2);
+                console.log(res);
+            }
+
+            if(data[i] === '+'){
+                setRes(number1+number2);
+                console.log(res);
+            }
+
+            if(data[i] === '-'){
+                setRes(number1-number2);
+                console.log(res);
+            }
+
+        }
+    }
+
+    return (
         <div className={'mainCalculatorDiv'}>
             <div className={'mainCalculatorDiv1'}>
                 <div>
@@ -76,21 +149,24 @@ const Calculator = () => {
                     <button onClick={getInputAddition}>+</button>
                 </div>
                 <div>
-                    <button>.</button>
-                    <button>0</button>
-                    <button>=</button>
-                    <button>-</button>
+                    <button onClick={getDecimalNumber}>.</button>
+                    <button onClick={getInput0}>0</button>
+                    <button onClick={result}>=</button>
+                    <button onClick={getsubtraction}>-</button>
                 </div>
                 <div>
-                    <button>RESET</button>
+                    <button onClick={xxxx}>RESET</button>
                 </div>
             </div>
             <div className={'mainCalculatorDiv2'}>
-                ssssssss
-                {data}
+                <div>
+                    {data}
+                </div>
+                <div>
+                    <p>Result:</p> {res}
+                </div>
             </div>
         </div>
     )
 }
-
 export default Calculator;

@@ -6,3 +6,11 @@ footer {
     align-items: center;
     justify-content: center;
 }
+
+footer img {
+    width: 50px;
+    height: 50px;
+    overflow: auto;
+    margin-left: 30px;
+    margin-right: 30px;
+}

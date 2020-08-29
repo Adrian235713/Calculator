@@ -5,6 +5,32 @@
 
 a {
     text-decoration: none;
+    color: white;
+    font-size: 20px;
 }
 
 
+button {
+    box-shadow:inset 0px 0px 0px 0px #cf866c;
+    background:linear-gradient(to bottom, #d0451b 5%, #ff2b00 100%);
+    background-color:#d0451b;
+    border-radius:6px;
+    border:2px solid #942911;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    padding:15px 20px;
+    text-decoration:none;
+    text-shadow:-2px 2px 17px #854629;
+    margin: 2px;
+}
+button:hover {
+    background:linear-gradient(to bottom, #ff2b00 5%, #d0451b 100%);
+    background-color:#ff2b00;
+}
+button:active {
+    position:relative;
+    top:1px;
+}

@@ -4,11 +4,10 @@ const Menu = () => {
 
     return(
         <div className={'menu'}>
-            <button>Opcja1</button>
-            <button>Opcja2</button>
-            <button>Opcja3</button>
-            <button>Opcja4</button>
-            <button>Opcja5</button>
+            <button>Basic calculator</button>
+            <button>The condition for building a triangle</button>
+            <button>Heron's formula</button>
+            <button>Find the square roots</button>
         </div>
     )
 }
