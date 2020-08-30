@@ -2,8 +2,33 @@ import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import Menu from "./menu";
 import Calculator from "./calculator";
+import TriangleCondition from "./triangleCondition";
+import HeronsFormula from "./heronsFormula";
+import FindSquareRoots from "./findSquareRoots";
 
-console.log("Test = app,js");
+const x_Calculator = <Calculator/>
+const x_HeronsFormula =  <HeronsFormula/>
+const x_TriangleCondition = <TriangleCondition/>
+const x_FindSquareRoots = <FindSquareRoots/>
+// ----------------------------------------------------------------
+
+let x = parseInt(localStorage.getItem('x'));
+let renderComponent = null;
+
+if (x === 0) {
+    renderComponent = <Calculator/>
+}
+if (x === 1) {
+    renderComponent = <HeronsFormula/>
+}
+if (x === 2) {
+    renderComponent = <TriangleCondition/>
+}
+if (x === 3) {
+    renderComponent = <FindSquareRoots/>
+}
+
+// ----------------------------------------------------------------
 
 const App = () => {
 
@@ -13,8 +38,7 @@ const App = () => {
                 <Menu/>
             </header>
             <div className={'mainAppBox'}>
-
-                <Calculator/>
+                {renderComponent}
             </div>
             <footer>
                 <div><a href="https://github.com/Adrian235713"><img src="../img/git.png" alt=""/></a></div>
@@ -24,5 +48,4 @@ const App = () => {
         </>
     )
 }
-
 ReactDOM.render(<App/>, document.getElementById("app"));
